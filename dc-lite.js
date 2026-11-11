@@ -107,9 +107,9 @@
         try { var saved = JSON.parse(localStorage.getItem(opts.persist.name) || 'null'); if (saved) comp.state = Object.assign({}, comp.state, saved); } catch (e) {}
         persist = opts.persist;
       }
-      ['click', 'input', 'change'].forEach(function (type) {
+      ['click', 'input', 'change', 'mouseover'].forEach(function (type) {
         app.addEventListener(type, function (e) {
-          var key = type === 'input' ? 'change' : type, n = e.target;
+          var key = type === 'input' ? 'change' : type === 'mouseover' ? 'mouseenter' : type, n = e.target;
           while (n && n !== app) { if (n.__h && n.__h[key]) { n.__h[key](e); return; } n = n.parentNode; }
         });
       });

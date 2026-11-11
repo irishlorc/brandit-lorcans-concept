@@ -16,6 +16,7 @@
 <style>
 body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#0F172A;background:#FFFFFF}
 a{color:#0F172A}a:hover{color:#006E9C}
+button{font-family:inherit;cursor:pointer}
 @media (max-width:720px){.bh-search{order:3;flex-basis:100% !important}.bh-cta{margin-left:auto}}
 :root{--d1:120ms;--d2:220ms;--d3:480ms;--d4:800ms;--ease:cubic-bezier(.22,1,.36,1);--rise:18px}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
@@ -105,6 +106,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 .kv2-b1{width:44%;top:auto;bottom:30%;left:-22%}.kv2-b2{width:30%;right:-14%;top:-7%}.kv2-y{width:50%;right:-18%;bottom:-6%}
 }
 @media (prefers-reduced-motion:no-preference){
+.mega{animation:rise var(--d2) var(--ease) both}
 .w{animation:rise var(--d4) var(--ease) both}
 .w:nth-child(2){animation-delay:80ms}.w:nth-child(3){animation-delay:160ms}.w:nth-child(4){animation-delay:240ms}
 .kv1-blue,.kv1-mbg{animation:slab var(--d4) var(--ease) both}
@@ -130,9 +132,14 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 }
 @media (prefers-reduced-motion:reduce){.mq{overflow-x:auto}.mq-dup{display:none !important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
+@media (max-width:1100px){.mega-feat{display:none !important}}
 @media (max-width:720px){
 .tb-l{display:none !important}
-.catnav{flex-wrap:nowrap !important;overflow-x:auto;white-space:nowrap}
+.catnav{overflow-x:auto;white-space:nowrap;padding-left:16px !important;padding-right:16px !important}
+.mega-cats{max-width:none !important;display:flex !important;overflow-x:auto;gap:8px !important;margin:0 -8px;padding:0 8px 2px}
+.mega-cats button{flex:none;white-space:nowrap;border:1px solid #CBD5E1 !important;border-radius:999px !important;padding:8px 14px !important}
+.mega-cats button svg{display:none}
+.mega-feat{display:none !important}
 .bn{padding-left:0 !important;padding-right:0 !important}
 .bn img{border-radius:0 !important}
 .bn-pad{padding:0 16px}
@@ -177,25 +184,49 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </header>
 
-<nav aria-label="Categories" style="border-bottom: 1px solid #E2E8F0">
-<div class="nosb catnav" style="max-width: 1240px; margin: 0 auto; padding: 4px 24px; display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 14.5px; font-weight: 600; box-sizing: border-box">
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Promotions &amp; Sale</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Campaign Ideas</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Eco &amp; Bio Products</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Writing Instruments</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Notebooks &amp; Notepads</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Drinkware</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Umbrellas</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Bags &amp; Backpacks</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Textiles &amp; Fashion</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Business &amp; Office</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Traveling</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Leisure &amp; Sport</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Wellness &amp; Healthcare</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Technology &amp; Mobile</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Kids, Toys &amp; School</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Tools</a>
+<nav aria-label="Categories" style="position: relative; border-bottom: 1px solid #E2E8F0; background: #FFFFFF">
+<div class="nosb catnav" style="max-width: 1240px; margin: 0 auto; padding: 8px 24px; display: flex; align-items: center; gap: 6px 26px; font-size: 15px; font-weight: 600; box-sizing: border-box; overflow-x: auto; white-space: nowrap">
+<button type="button" onClick="{{toggleMenu}}" aria-expanded="{{menuOpenAttr}}" aria-controls="mega" style="flex: none; display: inline-flex; align-items: center; gap: 10px; border: 0; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 15px; padding: 10px 18px; min-height: 44px; border-radius: 999px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>All products</button>
+<a href="shop.html" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Promotions &amp; Sale</a>
+<a href="shop.html" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Campaign Ideas</a>
+<a href="shop.html" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Eco &amp; Bio Products</a>
+<a href="shop.html" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Drinkware</a>
+<a href="shop.html" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Bags &amp; Backpacks</a>
+<span aria-hidden="true" style="flex: 1"></span>
+<a href="#how" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">How it works</a>
+<a href="#contact" class="lnk" style="flex: none; text-decoration: none; padding: 10px 0">Contact</a>
 </div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-label="Close menu" onClick="{{closeMenu}}" class="mega-back" style="position: fixed; inset: 0; z-index: 15; border: 0; background: rgba(2,6,23,.3); padding: 0"></button>
+<div id="mega" class="mega" style="position: absolute; left: 0; right: 0; top: 100%; z-index: 20; padding: 0 clamp(8px, 3vw, 24px); pointer-events: none">
+<div style="max-width: 1192px; margin: 0 auto; background: #FFFFFF; border-radius: 0 0 24px 24px; box-shadow: 0 40px 80px -40px rgba(2,6,23,.6); padding: clamp(16px, 2.4vw, 28px); display: flex; flex-wrap: wrap; gap: clamp(16px, 2.4vw, 36px); align-items: flex-start; box-sizing: border-box; pointer-events: auto">
+<div class="mega-cats nosb" role="group" aria-label="Product categories" style="flex: 1 1 380px; max-width: 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px">
+<sc-for list="{{menuCats}}" as="mc" hint-placeholder-count="16">
+<button type="button" onClick="{{mc.pick}}" onMouseEnter="{{mc.pick}}" aria-pressed="{{mc.on}}" style="text-align: left; border: 0; background: {{mc.bg}}; color: #0F172A; font-weight: 600; font-size: 15px; padding: 10px 14px; min-height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px"><span>{{mc.label}}</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M9 6l6 6-6 6"></path></svg></button>
+</sc-for>
+</div>
+<div style="flex: 2 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: stretch">
+<div style="flex: 3 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; padding-bottom: 12px; border-bottom: 1px solid #E2E8F0">
+<span style="font-weight: 800; font-size: 22px; letter-spacing: -0.02em">{{menuTitle}}</span>
+<a href="shop.html" style="font-weight: 700; font-size: 14px; padding: 8px 0">Shop all</a>
+</div>
+<sc-if value="{{hasSubs}}" hint-placeholder-val="{{true}}">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 0 24px">
+<sc-for list="{{menuSubs}}" as="ms" hint-placeholder-count="8">
+<a href="shop.html" style="text-decoration: none; font-size: 15px; font-weight: 500; color: #334155; padding: 9px 0">{{ms}}</a>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{noSubs}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; font-size: 15px; color: #334155">Browse the full range in this category.</p>
+</sc-if>
+</div>
+<a href="shop.html" class="tile mega-feat" style="flex: 0 1 210px; text-decoration: none; background: {{menuTint}}; border-radius: 20px; padding: 18px; min-height: 210px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; box-sizing: border-box"><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 700; color: #334155">Featured</span><span style="font-weight: 800; font-size: 18px; line-height: 1.2">{{menuFeat}}</span></span><sc-if value="{{mf.mugImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/mug.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.teeImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tee.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.toteImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tote.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.pbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/powerbank.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.nbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/notebook.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.dsImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/drawstring.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.capImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/cap.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if><sc-if value="{{mf.penImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/pen.png" alt="" style="align-self: flex-end; width: 124px; height: 124px; object-fit: contain"></sc-if></a>
+</div>
+</div>
+</div>
+</sc-if>
 </nav>
 
 <section class="bn" style="max-width: 1240px; margin: 0 auto; padding: clamp(12px, 2vw, 24px) clamp(12px, 3vw, 24px) 0; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px)">
@@ -476,33 +507,45 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 <p class="rv" style="margin: 0; font-size: 17px; color: #334155">Expert help for your branding projects, located in South City Business Park, Dublin.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px">
-<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Sales</span><span style="font-size: 14px; color: #475569">Quotes and product info</span></div>
-<span style="font-weight: 600; font-size: 15px">Lesley &amp; Aoife</span>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012094" style="padding: 6px 0">01 901 2094</a><a href="mailto:sales@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">sales@brandit.ie</a></div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: #DCE8FF; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12h5"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Sales</span><span style="font-size: 14px; color: #475569">Quotes and product info</span></div>
 </div>
-<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Trade</span><span style="font-size: 14px; color: #475569">Agencies and resellers</span></div>
-<span style="font-weight: 600; font-size: 15px">Shane &amp; Damien</span>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012094" style="padding: 6px 0">01 901 2094</a><a href="mailto:trade@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">trade@brandit.ie</a></div>
+<span style="font-weight: 600; font-size: 15px; color: #334155">Lesley &amp; Aoife</span>
+<div style="display: flex; flex-direction: column; font-size: 15px; border-top: 1px solid #E2E8F0; padding-top: 10px"><a href="tel:+35319012094" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg></span>01 901 2094</a><a href="mailto:sales@brandit.ie" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>sales@brandit.ie</a></div>
 </div>
-<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Production</span><span style="font-size: 14px; color: #475569">Printing and artwork</span></div>
-<span style="font-weight: 600; font-size: 15px">Keith &amp; Gary</span>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012093" style="padding: 6px 0">01 901 2093</a><a href="mailto:production@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">production@brandit.ie</a></div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: #FFE9B8; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Trade</span><span style="font-size: 14px; color: #475569">Agencies and resellers</span></div>
 </div>
-<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Accounts</span><span style="font-size: 14px; color: #475569">Invoices and billing</span></div>
-<span style="font-weight: 600; font-size: 15px">Paula &amp; Derek</span>
-<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319081533" style="padding: 6px 0">01 908 1533</a><a href="mailto:accounts@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">accounts@brandit.ie</a></div>
+<span style="font-weight: 600; font-size: 15px; color: #334155">Shane &amp; Damien</span>
+<div style="display: flex; flex-direction: column; font-size: 15px; border-top: 1px solid #E2E8F0; padding-top: 10px"><a href="tel:+35319012094" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg></span>01 901 2094</a><a href="mailto:trade@brandit.ie" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>trade@brandit.ie</a></div>
+</div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: #D6F2DE; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M7 8V3h10v5"></path><rect x="3" y="8" width="18" height="9" rx="2"></rect><path d="M7 14h10v7H7z"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Production</span><span style="font-size: 14px; color: #475569">Printing and artwork</span></div>
+</div>
+<span style="font-weight: 600; font-size: 15px; color: #334155">Keith &amp; Gary</span>
+<div style="display: flex; flex-direction: column; font-size: 15px; border-top: 1px solid #E2E8F0; padding-top: 10px"><a href="tel:+35319012093" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg></span>01 901 2093</a><a href="mailto:production@brandit.ie" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>production@brandit.ie</a></div>
+</div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="width: 56px; height: 56px; border-radius: 16px; background: #FFD9E0; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg></span>
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Accounts</span><span style="font-size: 14px; color: #475569">Invoices and billing</span></div>
+</div>
+<span style="font-weight: 600; font-size: 15px; color: #334155">Paula &amp; Derek</span>
+<div style="display: flex; flex-direction: column; font-size: 15px; border-top: 1px solid #E2E8F0; padding-top: 10px"><a href="tel:+35319081533" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg></span>01 908 1533</a><a href="mailto:accounts@brandit.ie" style="display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 7px 0; min-height: 30px; font-weight: 600; overflow-wrap: anywhere"><span style="color: {{accent}}; display: flex"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>accounts@brandit.ie</a></div>
 </div>
 </div>
 <div class="rv" style="background: {{soft}}; border-radius: 24px; padding: clamp(22px, 3vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
 <div style="display: flex; flex-wrap: wrap; gap: 20px 56px">
-<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Head office</span><span>Brandit Promotional Products Ltd.</span><span>Unit E11 Block E, South City Business Park</span><span>Tallaght, Dublin 24, D24 CV61, Ireland</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Opening hours</span><span>Monday to Friday</span><span>9:00 AM to 5:00 PM</span></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="width: 48px; height: 48px; border-radius: 14px; background: #FFFFFF; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M12 21s7-6.200 7-11a7 7 0 0 0-14 0c0 4.800 7 11 7 11z"></path><circle cx="12" cy="10" r="2.500"></circle></svg></span><div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Head office</span><span>Brandit Promotional Products Ltd.</span><span>Unit E11 Block E, South City Business Park</span><span>Tallaght, Dublin 24, D24 CV61, Ireland</span></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="width: 48px; height: 48px; border-radius: 14px; background: #FFFFFF; color: {{dark}}; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Opening hours</span><span>Monday to Friday</span><span>9:00 AM to 5:00 PM</span></div></div>
 </div>
-<a href="https://maps.google.com/?q=Brandit+Promotional+Products+Tallaght" class="btn" style="text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Get directions</a>
+<a href="https://maps.google.com/?q=Brandit+Promotional+Products+Tallaght" class="btn" style="text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; display: inline-flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M12 21s7-6.200 7-11a7 7 0 0 0-14 0c0 4.800 7 11 7 11z"></path><circle cx="12" cy="10" r="2.500"></circle></svg>Get directions</a>
 </div>
 </section>
 
@@ -527,6 +570,26 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 <script src="dc-lite.js"></script>
 <script>
 class Component extends DCLogic {
+menu() {
+return [
+['Promotions & Sale', [], '#FFE9B8', 'Current offers', ''],
+['Campaign Ideas', ['Conferences', 'Employee gifts', 'Small businesses', 'Trade shows', 'Healthcare', 'Students', 'Tech companies', 'Summer', 'Sports events'], '#E6DEFF', 'Ideas by occasion', 'ds'],
+['Eco & Bio Products', [], '#D6F2DE', 'Recycled and reusable', 'ds'],
+['Writing Instruments', ['Pens', 'Pencils', 'Rollers', 'Highlighters', 'Wax Pens', 'Erasers', 'Sharpeners', 'Pen Sets', 'Pen Cases'], '#FFE9B8', 'Metal ballpoint pen', 'pen'],
+['Notebooks & Notepads', ['Notebooks', 'Notepads & Sticky Notes'], '#D6F2DE', 'Recycled notebook A5', 'nb'],
+['Drinkware', ['Tumblers', 'Cups', 'Mugs', 'Thermo & Travel Mugs', 'Sport Bottles', 'Coffee & Tea Sets', 'Kettles', 'Flasks', 'Glasses', 'Pitchers', 'Decanters', 'Drink Accessories'], '#FFDDC7', 'Insulated travel mug', 'mug'],
+['Umbrellas', [], '#DCE8FF', 'Umbrellas for every event', ''],
+['Bags & Backpacks', ['Tote & Shopping Bags', 'Beach & Shopping Bags', 'Backpacks & Shoulder Bags', 'Travel & Sport Bags', 'Laptop & Document Bags', 'Cooling & Thermo Bags', 'Waist Bags', 'Garment Bags', 'Shoe Bags', 'Paper Bags', 'Plastic Bags', 'Other Bags'], '#FFE9B8', 'Organic cotton tote', 'tote'],
+['Textiles & Fashion', ['T-Shirts', 'Poloshirts', 'Shirts', 'Jackets & Sweatshirts', 'Cap & Head', 'Trousers & Shorts', 'Towels & Bathrobes', 'Rainwear', 'Work Clothes', 'Sport & Fitness Clothes', 'Gastronomy Clothes', 'Footwear', 'Fashion Accessories'], '#D6F2DE', 'Classic cotton tee', 'tee'],
+['Business & Office', ['Business Card Holders', 'Calculators', 'Calendars & Diaries', 'Document Folders', 'Lanyards & Pass Holders'], '#DCE8FF', 'Desk and office essentials', 'nb'],
+['Traveling', [], '#E6DEFF', 'Travel essentials', 'ds'],
+['Leisure & Sport', ['Beach Accessories', 'Games'], '#DCE8FF', 'Five-panel cap', 'cap'],
+['Wellness & Healthcare', ['Medical Products'], '#FFD9E0', 'Wellness and care', ''],
+['Technology & Mobile', ['Clocks & Alarms', 'Watches', 'Weather Stations & Thermometers', 'Virtual Reality (VR)', 'Drones', 'Cables'], '#E6DEFF', 'Slim power bank', 'pb'],
+['Kids, Toys & School', ['School Accessories', 'Coin Banks', 'Toys', 'Kid Drawings'], '#FFE9B8', 'For schools and families', ''],
+['Tools', ['Car Accessories', 'Flashlights & Torches', 'Knives'], '#FFDDC7', 'Tools and torches', '']
+];
+}
 componentDidMount() {
 try {
 const root = document.documentElement;
@@ -560,7 +623,23 @@ nb: { cat: 'Pens and stationery', name: 'Recycled notebook A5', line: 'Debossed 
 const sel = (this.state || {}).sel || 'tee';
 const on = (id) => (sel === id ? 'true' : 'false');
 const pick = (id) => () => this.setState({ sel: id });
+const menu = this.menu();
+const mi = Math.min((this.state || {}).mi === undefined ? 5 : (this.state || {}).mi, menu.length - 1);
+const mcur = menu[mi];
+const menuOpen = !!(this.state || {}).menuOpen;
 return {
+menuOpen: menuOpen,
+menuOpenAttr: menuOpen ? 'true' : 'false',
+toggleMenu: () => this.setState({ menuOpen: !(this.state || {}).menuOpen }),
+closeMenu: () => this.setState({ menuOpen: false }),
+menuCats: menu.map((m, i) => ({ label: m[0], on: i === mi ? 'true' : 'false', bg: i === mi ? 'color-mix(in srgb, ' + brand + ' 12%, #FFFFFF)' : 'transparent', pick: () => { if (((this.state || {}).mi === undefined ? 5 : (this.state || {}).mi) !== i) { this.setState({ mi: i }); } } })),
+menuTitle: mcur[0],
+menuSubs: mcur[1],
+hasSubs: mcur[1].length > 0,
+noSubs: mcur[1].length === 0,
+menuTint: mcur[2],
+menuFeat: mcur[3],
+mf: { mugImg: mcur[4] === 'mug', teeImg: mcur[4] === 'tee', toteImg: mcur[4] === 'tote', pbImg: mcur[4] === 'pb', nbImg: mcur[4] === 'nb', dsImg: mcur[4] === 'ds', capImg: mcur[4] === 'cap', penImg: mcur[4] === 'pen' },
 selCat: picks[sel].cat, selName: picks[sel].name, selLine: picks[sel].line,
 onTote: on('tote'), onCap: on('cap'), onTee: on('tee'), onMug: on('mug'), onDs: on('ds'), onNb: on('nb'),
 pickTote: pick('tote'), pickCap: pick('cap'), pickTee: pick('tee'), pickMug: pick('mug'), pickDs: pick('ds'), pickNb: pick('nb'),
