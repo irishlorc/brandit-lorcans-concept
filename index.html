@@ -60,6 +60,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
 @keyframes draw{to{stroke-dashoffset:0}}
 }
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .shadow{filter:drop-shadow(0 16px 14px rgba(2,6,23,.22))}
 .kv1{position:relative;overflow:hidden;background:#FFFFFF}
 .kv1-blue{position:absolute;inset:0;clip-path:polygon(66% 0,100% 0,100% 100%,44% 100%)}
@@ -161,30 +162,13 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </nav>
 
-<section class="kv1">
-<div class="kv1-blue" aria-hidden="true" style="background: {{brand}}"></div>
-<div class="kv1-y1" aria-hidden="true"></div>
-<div class="kv1-y2" aria-hidden="true"></div>
-<div class="kv1-in">
-<div class="kv1-copy">
-<h1 style="margin: 0; font-weight: 800; font-size: clamp(40px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -0.035em"><span class="w">Promotional</span> <span class="w">products</span> <span class="w">that</span> <span class="w" style="color: {{accent}}">perform.</span></h1>
-<div aria-hidden="true" class="bar" style="width: 96px; height: 8px; border-radius: 999px; background: #FFD400"></div>
-<p class="hin" style="margin: 0; font-size: 18px; line-height: 1.55; color: #334155; max-width: 470px; text-wrap: pretty">Browse the range, add what you like to an enquiry list and send it in one go. We reply with pricing, lead times and a mock-up of your logo.</p>
-<div class="hin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<section style="max-width: 1240px; margin: 0 auto; padding: clamp(12px, 2vw, 24px) clamp(12px, 3vw, 24px) 0; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px)">
+<h1 class="sr">Promotional products that perform.</h1>
+<a href="shop.html" class="hero-img" style="display: block"><img decoding="async" src="assets/banner-hero.jpg" width="1774" height="887" alt="Brandit Promotional Products: promotional products that perform. A branded tote bag, travel mug, cap, t-shirt, water bottle and pen." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
+<div class="hin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
 <a href="shop.html" class="btn" style="text-decoration: none; font-weight: 700; font-size: 16px; padding: 15px 28px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Explore our range</a>
 <a href="#how" style="font-weight: 600; font-size: 16px; padding: 15px 4px">How enquiries work</a>
-</div>
-</div>
-<div class="kv1-stage" aria-hidden="true">
-<div class="kv1-mbg" style="background: {{brand}}"></div>
-<div class="floor stg"></div>
-<img decoding="async" class="stg shadow" src="assets/tote.png" alt="" style="left: 44%; top: -8%; width: 52%">
-<img decoding="async" class="stg shadow" src="assets/mug.png" alt="" style="left: 21%; top: 36%; width: 20%">
-<img decoding="async" class="stg shadow" src="assets/notebook.png" alt="" style="left: 76%; top: 58%; width: 24%; rotate: 5deg">
-<img decoding="async" class="stg shadow" src="assets/tee.png" alt="" style="left: 40%; top: 45%; width: 40%">
-<img decoding="async" class="stg shadow" src="assets/cap.png" alt="" style="left: 0%; top: 58%; width: 42%">
-<img decoding="async" class="stg shadow" src="assets/pen.png" alt="" style="left: 24%; top: 86%; width: 32%; rotate: -7deg">
-</div>
+<span style="font-size: 15px; color: #475569; flex: 1 1 280px; min-width: 0">Add what you like to an enquiry list and send it in one go. We reply with pricing and a mock-up of your logo.</span>
 </div>
 </section>
 
@@ -224,32 +208,8 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<section class="kv2" style="margin-top: clamp(40px, 6vw, 72px); background: {{soft}}">
-<div class="kv2-b1 drift" aria-hidden="true" style="background: {{brand}}"></div>
-<div class="kv2-b2 drift2" aria-hidden="true" style="background: {{brand}}"></div>
-<div class="kv2-y drift" aria-hidden="true"></div>
-<div class="kv2-in">
-<div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; max-width: 620px">
-<h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.08; text-wrap: balance">Same logo. Six ways to carry it.</h2>
-<p class="rv" style="margin: 0; font-size: 17px; color: #334155">Pick a product to see how we would brand it.</p>
-</div>
-<div class="kv2-row rv" role="group" aria-label="Choose a product">
-<button type="button" class="kv2-item" aria-pressed="{{onTote}}" aria-label="Organic cotton tote" onClick="{{pickTote}}"><img decoding="async" class="shadow" src="assets/tote.png" alt=""><span class="kv2-pod"></span></button>
-<button type="button" class="kv2-item" aria-pressed="{{onCap}}" aria-label="Five-panel cap" onClick="{{pickCap}}"><img decoding="async" class="shadow" src="assets/cap.png" alt=""><span class="kv2-pod"></span></button>
-<button type="button" class="kv2-item" aria-pressed="{{onTee}}" aria-label="Classic cotton tee" onClick="{{pickTee}}"><img decoding="async" class="shadow" src="assets/tee.png" alt=""><span class="kv2-pod"></span></button>
-<button type="button" class="kv2-item" aria-pressed="{{onMug}}" aria-label="Insulated travel mug" onClick="{{pickMug}}"><img decoding="async" class="shadow" src="assets/mug.png" alt=""><span class="kv2-pod"></span></button>
-<button type="button" class="kv2-item" aria-pressed="{{onDs}}" aria-label="Recycled cotton drawstring bag" onClick="{{pickDs}}"><img decoding="async" class="shadow" src="assets/drawstring.png" alt=""><span class="kv2-pod"></span></button>
-<button type="button" class="kv2-item" aria-pressed="{{onNb}}" aria-label="Recycled notebook A5" onClick="{{pickNb}}"><img decoding="async" class="shadow" src="assets/notebook.png" alt=""><span class="kv2-pod"></span></button>
-</div>
-<div class="kv2-panel rv" aria-live="polite">
-<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 13px; font-weight: 700; color: #475569">{{selCat}}</span>
-<span style="font-weight: 800; font-size: 22px; letter-spacing: -0.02em">{{selName}}</span>
-<span style="font-size: 15px; color: #334155">{{selLine}}</span>
-</div>
-<a href="shop.html" class="btn" style="text-decoration: none; font-weight: 700; font-size: 15px; padding: 13px 22px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Add it to an enquiry</a>
-</div>
-</div>
+<section style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) 0">
+<a href="shop.html" class="rv" style="display: block"><img decoding="async" loading="lazy" src="assets/banner-range.jpg" width="1774" height="887" alt="Brandit Promotional Products range: branded tote bag, t-shirt, cap, travel mug, water bottle, notebook and pen." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
 </section>
 
 <section style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(16px, 3vw, 24px) 0; display: flex; flex-direction: column; gap: 24px">
@@ -316,25 +276,11 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<section class="kv3" style="margin-top: clamp(40px, 6vw, 72px); background: {{dark}}">
-<div class="kv3-b" aria-hidden="true" style="background: {{brand}}"></div>
-<div class="kv3-ys" aria-hidden="true"></div>
-<div class="kv3-in">
-<div class="kv3-copy">
-<h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(34px, 4.4vw, 58px); letter-spacing: -0.035em; line-height: 1.04; text-wrap: balance">Got an idea? Let's put your name on it.</h2>
-<div aria-hidden="true" class="rv" style="width: 96px; height: 8px; border-radius: 999px; background: #FFD400"></div>
-<p class="rv" style="margin: 0; font-size: 18px; color: #E3EAFB; max-width: 440px">Tell us the item, the quantity and the date you need it. We come back with a price and a mock-up.</p>
-<a href="shop.html" class="btn rv" style="text-decoration: none; font-weight: 800; font-size: 18px; padding: 18px 32px; border-radius: 999px; background: #FFFFFF; color: {{dark}}; display: inline-flex; align-items: center; gap: 12px">Get a Quote<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-</div>
-<div class="kv3-stage rv" aria-hidden="true">
-<div class="kv3-mbg" style="background: {{brand}}"></div>
-<div class="kv3-mys"></div>
-<div class="floor"></div>
-<img decoding="async" class="shadow" src="assets/drawstring.png" alt="" style="left: 27%; top: -2%; width: 52%">
-<img decoding="async" class="shadow" src="assets/powerbank.png" alt="" style="left: 0%; top: 46%; width: 44%; rotate: -6deg">
-<img decoding="async" class="shadow" src="assets/cap.png" alt="" style="left: 54%; top: 48%; width: 46%">
-<img decoding="async" class="shadow" src="assets/pen.png" alt="" style="left: 28%; top: 84%; width: 38%; rotate: 5deg">
-</div>
+<section style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px)">
+<a href="shop.html" class="rv" style="display: block"><img decoding="async" loading="lazy" src="assets/banner-closing.jpg" width="1774" height="887" alt="Brandit Promotional Products: branded products that build awareness, engage people and deliver lasting value. Explore our range." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.08; flex: 1 1 420px; min-width: 0; text-wrap: balance">Got an idea? Let's put your name on it.</h2>
+<a href="shop.html" class="btn rv" style="text-decoration: none; font-weight: 800; font-size: 18px; padding: 18px 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; display: inline-flex; align-items: center; gap: 12px">Get a Quote<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </section>
 
