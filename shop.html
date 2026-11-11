@@ -23,6 +23,7 @@ html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #0F172A;outline-offset:3px}
 button,.btn{transition:transform var(--d1) var(--ease),filter var(--d2) var(--ease),box-shadow var(--d2) var(--ease),background-color var(--d2) var(--ease),color var(--d2) var(--ease),border-color var(--d2) var(--ease)}
 .card,.tile{transition:box-shadow var(--d2) var(--ease)}
+.sw{transition:box-shadow var(--d2) var(--ease),transform var(--d1) var(--ease)}
 .card img,.tile img{transition:transform var(--d3) var(--ease)}
 .lnk{background:linear-gradient(currentColor,currentColor) 0 calc(100% - 8px)/0 2px no-repeat;transition:background-size var(--d2) var(--ease)}
 @media (hover:hover){
@@ -54,6 +55,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 .grid article:nth-child(2){animation-delay:40ms}.grid article:nth-child(3){animation-delay:80ms}.grid article:nth-child(4){animation-delay:120ms}.grid article:nth-child(5){animation-delay:160ms}.grid article:nth-child(6){animation-delay:200ms}.grid article:nth-child(7){animation-delay:240ms}.grid article:nth-child(n+8){animation-delay:280ms}
 .toast{animation:toast 2600ms var(--ease) both}
 .pop{animation:pop var(--d3) var(--ease)}
+.tabp{animation:rise var(--d2) var(--ease) both}
 .draw{stroke-dasharray:44;stroke-dashoffset:44;animation:draw var(--d4) var(--ease) 200ms forwards}
 @keyframes rise{from{opacity:0;transform:translateY(var(--rise))}to{opacity:1;transform:none}}
 @keyframes swipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -141,22 +143,47 @@ button{font-family:inherit;cursor:pointer}
 </sc-if>
 
 <sc-if value="{{isProduct}}" hint-placeholder-val="{{false}}">
-<main class="view" key="v2" style="max-width: 1240px; margin: 0 auto; padding: 20px 24px 96px; display: flex; flex-direction: column; gap: 20px">
-<button type="button" onClick="{{goShop}}" style="align-self: flex-start; border: 0; background: transparent; color: #0F172A; font-weight: 600; font-size: 15px; padding: 10px 0; min-height: 44px; text-decoration: underline">Back to products</button>
+<main class="view" key="v2" style="max-width: 1240px; margin: 0 auto; padding: 16px clamp(16px, 3vw, 24px) 96px; display: flex; flex-direction: column; gap: clamp(28px, 4vw, 48px)">
+<nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 14px; color: #475569">
+<button type="button" onClick="{{goShop}}" style="border: 0; background: transparent; color: #0F172A; font-weight: 600; font-size: 14px; padding: 10px 0; min-height: 44px; text-decoration: underline">Products</button>
+<span aria-hidden="true">/</span><span>{{p.cat}}</span><span aria-hidden="true">/</span><span style="color: #0F172A; font-weight: 600">{{p.name}}</span>
+</nav>
 <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 48px); align-items: flex-start">
 <div style="flex: 1 1 440px; min-width: 0; height: clamp(260px, 40vw, 520px); border-radius: 28px; background: {{p.tint}}; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #475569"><sc-if value="{{p.mugImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/mug.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.teeImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tee.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.toteImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tote.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.pbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/powerbank.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.nbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/notebook.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.dsImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/drawstring.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.capImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/cap.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.penImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/pen.png" alt="" style="max-height: clamp(220px, 34vw, 440px); max-width: 80%"></sc-if><sc-if value="{{p.noImg}}" hint-placeholder-val="{{true}}">Product photo</sc-if></div>
 <div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 14px; font-weight: 600; color: #475569">{{p.cat}}</span>
-<h1 style="margin: 0; font-weight: 800; font-size: 38px; letter-spacing: -0.03em; line-height: 1.1">{{p.name}}</h1>
+<span style="font-size: 14px; font-weight: 600; color: #475569">{{p.cat}} · Ref. {{p.ref}}</span>
+<h1 style="margin: 0; font-weight: 800; font-size: clamp(30px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.1">{{p.name}}</h1>
 <p style="margin: 0; font-size: 17px; color: #475569; text-wrap: pretty">{{p.desc}}</p>
 </div>
-<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 12px">
-<div style="background: {{soft}}; border-radius: 16px; padding: 14px 16px"><dt style="font-size: 13px; color: #334155">Branding</dt><dd style="margin: 0; font-weight: 700; font-size: 15px">{{p.method}}</dd></div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #15803D"></span>{{p.stockLabel}}</span>
+<button type="button" onClick="{{toggleStock}}" aria-expanded="{{stockOpenAttr}}" style="border: 0; background: transparent; color: #0F172A; font-weight: 600; font-size: 14px; padding: 10px 0; min-height: 44px; text-decoration: underline">{{stockBtn}}</button>
+</div>
+<sc-if value="{{stockOpen}}" hint-placeholder-val="{{false}}">
+<div class="tabp" style="border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; font-size: 14px">
+<div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 8px; padding: 10px 16px; background: {{soft}}; font-weight: 700"><span>Colour</span><span>In stock</span><span>On the way</span></div>
+<sc-for list="{{p.stock}}" as="st" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 8px; padding: 10px 16px; border-top: 1px solid #E2E8F0"><span>{{st.name}}</span><span>{{st.now}}</span><span>{{st.way}}</span></div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #475569">Colour: <strong style="color: #0F172A">{{colourName}}</strong></span>
+<div role="group" aria-label="Colour" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{p.swatches}}" as="sw" hint-placeholder-count="4">
+<button type="button" class="sw" onClick="{{sw.pick}}" aria-pressed="{{sw.on}}" aria-label="{{sw.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #FFFFFF; background: {{sw.hex}}; box-shadow: 0 0 0 2px {{sw.ring}}; padding: 0"></button>
+</sc-for>
+</div>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 10px">
 <div style="background: {{soft}}; border-radius: 16px; padding: 14px 16px"><dt style="font-size: 13px; color: #334155">Minimum order</dt><dd style="margin: 0; font-weight: 700; font-size: 15px">{{p.moq}} units</dd></div>
-<div style="background: {{soft}}; border-radius: 16px; padding: 14px 16px"><dt style="font-size: 13px; color: #334155">Lead time</dt><dd style="margin: 0; font-weight: 700; font-size: 15px">[LEAD TIME]</dd></div>
+<div style="background: {{soft}}; border-radius: 16px; padding: 14px 16px"><dt style="font-size: 13px; color: #334155">Price</dt><dd style="margin: 0; font-weight: 700; font-size: 15px">On request</dd></div>
+<div style="background: {{soft}}; border-radius: 16px; padding: 14px 16px"><dt style="font-size: 13px; color: #334155">Production from</dt><dd style="margin: 0; font-weight: 700; font-size: 15px">{{p.leadShort}}</dd></div>
 </dl>
-<div style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
 <span style="font-weight: 700; font-size: 15px">Rough quantity</span>
 <div style="display: flex; align-items: center; gap: 4px">
@@ -165,11 +192,114 @@ button{font-family:inherit;cursor:pointer}
 <button type="button" onClick="{{draftInc}}" aria-label="Increase quantity" style="width: 44px; height: 44px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; border-radius: 999px; font-size: 20px; line-height: 1">+</button>
 </div>
 </div>
-<button type="button" onClick="{{addCurrent}}" style="border: 0; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 16px; padding: 15px 20px; min-height: 48px; border-radius: 999px">{{addCurrentLabel}}</button>
-<span style="font-size: 14px; color: #475569">Price on enquiry. You are not ordering or paying, just asking for a quote.</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" onClick="{{addCurrent}}" style="flex: 999 1 220px; border: 0; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 16px; padding: 15px 20px; min-height: 48px; border-radius: 999px">{{addCurrentLabel}}</button>
+<a href="index.html#contact" class="btn" style="display: inline-flex; align-items: center; justify-content: center; flex: 1 1 130px; text-align: center; text-decoration: none; box-sizing: border-box; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; font-weight: 700; font-size: 15px; padding: 13px 20px; min-height: 48px; border-radius: 999px">Contact us</a>
+</div>
+<span style="font-size: 14px; color: #475569">You are not ordering or paying, just asking for a quote.</span>
 </div>
 </div>
 </div>
+
+<section style="display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px)">
+<div role="tablist" aria-label="Product information" class="pills nosb" style="display: flex; flex-wrap: wrap; gap: 4px 8px; border-bottom: 1px solid #E2E8F0">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button type="button" role="tab" aria-selected="{{t.sel}}" onClick="{{t.pick}}" style="border: 0; border-bottom: 3px solid {{t.line}}; background: transparent; color: {{t.fg}}; font-weight: 700; font-size: 16px; padding: 14px 10px; min-height: 48px; margin-bottom: -1px">{{t.label}}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{tabDesc}}" hint-placeholder-val="{{true}}">
+<div role="tabpanel" class="tabp" key="desc" style="display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 48px); align-items: flex-start">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.02em">About this product</h2>
+<p style="margin: 0; font-size: 17px; color: #334155; text-wrap: pretty">{{p.desc}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{p.features}}" as="ft" hint-placeholder-count="3">
+<li style="display: flex; gap: 10px; align-items: flex-start; font-size: 16px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px"><path d="M5 13l4 4 10-11"></path></svg><span>{{ft}}</span></li>
+</sc-for>
+</ul>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; background: {{soft}}; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+<h3 style="margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.02em">Production and delivery</h3>
+<div style="display: flex; flex-direction: column; background: #FFFFFF; border-radius: 14px; overflow: hidden; font-size: 15px">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 16px; font-weight: 700; color: #334155; font-size: 13px"><span>Quantity</span><span>Estimated time</span></div>
+<sc-for list="{{p.lead}}" as="ld" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 16px; border-top: 1px solid #E2E8F0"><span>{{ld.q}} units</span><span style="font-weight: 700">{{ld.d}}</span></div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #334155">Times cover production and shipping, counted from artwork approval. Delivery cost is quoted with your enquiry.</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{tabSpec}}" hint-placeholder-val="{{false}}">
+<div role="tabpanel" class="tabp" key="spec">
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 0 32px">
+<sc-for list="{{p.specs}}" as="sp" hint-placeholder-count="9">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E2E8F0; font-size: 15px"><dt style="color: #475569">{{sp.k}}</dt><dd style="margin: 0; font-weight: 700; text-align: right">{{sp.v}}</dd></div>
+</sc-for>
+</dl>
+</div>
+</sc-if>
+
+<sc-if value="{{tabPrint}}" hint-placeholder-val="{{false}}">
+<div role="tabpanel" class="tabp" key="print" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px">
+<sc-for list="{{p.prints}}" as="pr" hint-placeholder-count="2">
+<div style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.02em">{{pr.name}}</h3>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15px">
+<div style="display: flex; justify-content: space-between; gap: 16px"><dt style="color: #475569">Position</dt><dd style="margin: 0; font-weight: 700; text-align: right">{{pr.pos}}</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px"><dt style="color: #475569">Largest print area</dt><dd style="margin: 0; font-weight: 700; text-align: right">{{pr.area}}</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px"><dt style="color: #475569">Colours</dt><dd style="margin: 0; font-weight: 700; text-align: right">{{pr.cols}}</dd></div>
+</dl>
+</div>
+</sc-for>
+<div style="background: {{soft}}; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.02em">Artwork</h3>
+<p style="margin: 0; font-size: 15px; color: #334155">Send your logo as a vector file (AI, EPS or PDF) if you have one. We send a mock-up for approval before anything is printed.</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{tabSim}}" hint-placeholder-val="{{false}}">
+<div role="tabpanel" class="tabp" key="sim" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 45%), 1fr)); gap: 16px">
+<sc-for list="{{sims}}" as="sim" hint-placeholder-count="4">
+<article class="card" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 12px; display: flex; flex-direction: column; gap: 12px">
+<button type="button" onClick="{{sim.open}}" aria-label="{{sim.openLabel}}" style="border: 0; padding: 0; height: clamp(130px, 16vw, 210px); border-radius: 14px; background: {{sim.tint}}; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #475569"><sc-if value="{{sim.mugImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/mug.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.teeImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tee.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.toteImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/tote.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.pbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/powerbank.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.nbImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/notebook.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.dsImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/drawstring.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.capImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/cap.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.penImg}}" hint-placeholder-val="{{false}}"><img decoding="async" src="assets/pen.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></sc-if><sc-if value="{{sim.noImg}}" hint-placeholder-val="{{true}}">Product photo</sc-if></button>
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 0 6px">
+<span style="font-size: 13px; font-weight: 600; color: #475569">{{sim.cat}}</span>
+<span style="font-weight: 700; font-size: 16px">{{sim.name}}</span>
+<span style="font-size: 14px; color: #475569">Price on request · from {{sim.moq}} units</span>
+</div>
+<button type="button" onClick="{{sim.toggle}}" style="margin-top: auto; border: 1px solid {{sim.addBorder}}; background: {{sim.addBg}}; color: {{sim.addFg}}; font-weight: 700; font-size: 14px; padding: 10px 12px; min-height: 44px; border-radius: 999px">{{sim.addLabel}}</button>
+</article>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{tabFiles}}" hint-placeholder-val="{{false}}">
+<div role="tabpanel" class="tabp" key="files" style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+<sc-for list="{{p.files}}" as="fl" hint-placeholder-count="1">
+<div style="border: 1px solid #E2E8F0; border-radius: 18px; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: {{soft}}; color: {{dark}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; flex: none">PDF</span>
+<span style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 16px">{{fl.name}}</span><span style="font-size: 14px; color: #475569">{{fl.note}}</span></span>
+<button type="button" onClick="{{fl.get}}" style="border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; font-weight: 700; font-size: 15px; padding: 13px 20px; min-height: 48px; border-radius: 999px">Download</button>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</section>
+
+<section style="background: {{soft}}; border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 32px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">Want a quote for this product?</h2>
+<p style="margin: 0; font-size: 16px; color: #334155">Add it to your enquiry list with a rough quantity. We reply with pricing and a mock-up of your logo.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<button type="button" onClick="{{addCurrent}}" style="border: 0; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 16px; padding: 15px 26px; min-height: 48px; border-radius: 999px">{{addCurrentLabel}}</button>
+<a href="index.html#contact" class="btn" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; font-weight: 700; font-size: 15px; padding: 13px 20px; min-height: 48px; border-radius: 999px">Contact us</a>
+</div>
+</section>
 </main>
 </sc-if>
 
@@ -273,8 +403,28 @@ return [
 { id: 'pen', cat: 'Pens and stationery', name: 'Metal ballpoint pen', moq: 250, method: 'Laser engraving', tint: '#FFE9B8', desc: 'Weighted aluminium pen with a smooth click action. Engraved logo on the barrel.' },
 { id: 'powerbank', cat: 'Tech', name: 'Slim power bank 5000mAh', moq: 50, method: 'Full-colour print', tint: '#E6DEFF', desc: 'Pocket-size power bank with USB-C. Edge-to-edge print on the top face.' },
 { id: 'charger', cat: 'Tech', name: 'Wireless charging pad', moq: 50, method: 'Full-colour print', tint: '#FFD9E0', desc: 'Low-profile wireless charger for desks and meeting rooms. Printed logo in the centre.' },
+{ id: 'umbrella', cat: 'Umbrellas', name: 'Automatic pongee umbrella 95 cm', moq: 50, method: 'Screen print', tint: '#DCE8FF', desc: 'Automatic umbrella with a pongee canopy, 95 cm across. One or more panels printed with your logo.' },
 { id: 'lunchbox', cat: 'Eco range', name: 'Bamboo fibre lunch box', moq: 100, method: 'Laser engraving', tint: '#FFDDC7', desc: 'Lunch box with a bamboo lid and elastic strap. Logo engraved into the lid.' }
 ];
+}
+extra() {
+const C = { blue: ['Brandit blue', '#008FC9'], black: ['Black', '#111827'], white: ['White', '#F1F5F9'], navy: ['Navy', '#1E3A5F'], grey: ['Grey', '#9CA3AF'], red: ['Red', '#C81E1E'], natural: ['Natural', '#E7DCC3'], green: ['Green', '#15803D'] };
+const E = {
+bottle: ['BR-1001', 'Stainless steel', 'Ø 7 × 26 cm', '310 g', ['blue', 'black', 'white', 'grey'], 'Front or back'],
+mug: ['BR-1002', 'Stainless steel, PP lid', 'Ø 9 × 17 cm', '280 g', ['blue', 'black', 'white'], 'Front or back'],
+tote: ['BR-2001', 'Organic cotton, 220 g/m²', '38 × 42 cm', '95 g', ['blue', 'natural', 'black', 'navy'], 'One or both sides'],
+drawstring: ['BR-2002', 'Recycled cotton, 150 g/m²', '37 × 46 cm', '70 g', ['blue', 'natural', 'black'], 'Front'],
+hoodie: ['BR-3001', '80% cotton, 20% polyester', 'XS to 3XL', '520 g', ['blue', 'black', 'grey', 'navy'], 'Chest, back or sleeve'],
+tee: ['BR-3002', '100% cotton, 180 g/m²', 'XS to 3XL', '160 g', ['blue', 'white', 'black', 'red', 'navy'], 'Front, back or sleeve'],
+cap: ['BR-3003', 'Cotton twill', 'One size, adjustable', '75 g', ['blue', 'black', 'navy'], 'Front panel'],
+notebook: ['BR-4001', 'Recycled card and paper', '14 × 21 cm, 80 sheets', '260 g', ['blue', 'black', 'green'], 'Front cover'],
+pen: ['BR-4002', 'Aluminium', '14 cm', '18 g', ['blue', 'black', 'grey', 'red'], 'Barrel'],
+powerbank: ['BR-5001', 'ABS and aluminium', '14 × 7 × 1 cm', '120 g', ['blue', 'black', 'white'], 'Top face'],
+charger: ['BR-5002', 'ABS', 'Ø 10 × 1 cm', '60 g', ['white', 'black', 'blue'], 'Top face'],
+umbrella: ['BR-6001', 'Pongee', 'Ø 95 cm', '350 g', ['blue', 'black', 'navy', 'red'], 'One or more panels'],
+lunchbox: ['BR-7001', 'Bamboo fibre and PP', '19 × 13 × 6 cm', '300 g', ['natural', 'green', 'blue'], 'Lid']
+};
+return { C: C, E: E };
 }
 renderVals() {
 const brand = this.props.accent ?? '#008FC9';
@@ -297,7 +447,7 @@ const next = Object.assign({}, (this.state || {}).list || {});
 if (qty === null) { delete next[id]; } else { next[id] = qty; }
 this.setState({ list: next });
 };
-const catNames = ['All', 'Drinkware', 'Bags', 'Apparel', 'Pens and stationery', 'Tech', 'Eco range'];
+const catNames = ['All', 'Drinkware', 'Bags', 'Apparel', 'Pens and stationery', 'Tech', 'Umbrellas', 'Eco range'];
 const cats = catNames.map((label) => {
 const active = label === cat;
 return {
@@ -312,7 +462,7 @@ pick: () => this.setState({ cat: label })
 const shown = all.filter((x) => (cat === 'All' || x.cat === cat) && (q === '' || (x.name + ' ' + x.cat).toLowerCase().indexOf(q) !== -1));
 if (sort === 'az') { shown.sort((a, b) => a.name.localeCompare(b.name)); }
 if (sort === 'moq') { shown.sort((a, b) => a.moq - b.moq); }
-const products = shown.map((x) => {
+const card = (x) => {
 const added = list[x.id] !== undefined;
 return Object.assign({}, x, flags(x), {
 openLabel: 'View ' + x.name,
@@ -320,12 +470,40 @@ addLabel: added ? 'Added to enquiry' : 'Add to enquiry',
 addBg: added ? soft : accent,
 addFg: added ? dark : '#FFFFFF',
 addBorder: added ? soft : accent,
-open: () => { this.setState({ view: 'product', pid: x.id, draft: null }); top(); },
+open: () => { this.setState({ view: 'product', pid: x.id, draft: null, tab: 'desc', stockOpen: false, col: 0 }); top(); },
 toggle: () => { setQty(x.id, added ? null : x.moq); toast(added ? x.name + ' removed from your list' : x.name + ' added to your list'); }
 });
-});
+};
+const products = shown.map(card);
 const p0 = all.find((x) => x.id === s.pid) || all[0];
-const p = Object.assign({}, p0, flags(p0));
+const ex = this.extra();
+const e = ex.E[p0.id] || ['BR-0000', '', '', '', ['blue'], 'Front'];
+const cols = e[4].map((k) => ex.C[k]);
+const col = Math.min(s.col || 0, cols.length - 1);
+const lead = p0.id === 'umbrella' ? [{ q: '50+', d: '23 days' }, { q: '2,500+', d: '33 days' }] : [{ q: p0.moq + '+', d: '15 days' }, { q: '1,000+', d: '25 days' }];
+const p = Object.assign({}, p0, flags(p0), {
+ref: e[0],
+stockLabel: 'In stock',
+stock: cols.map((c, i) => ({ name: c[0], now: String(1200 - i * 260), way: String(i % 2 === 0 ? 2000 : 0) })),
+swatches: cols.map((c, i) => ({ name: c[0], hex: c[1], on: i === col ? 'true' : 'false', ring: i === col ? '#0F172A' : '#CBD5E1', pick: () => this.setState({ col: i }) })),
+lead: lead,
+leadShort: lead[0].d,
+features: ['Branded with your logo by ' + p0.method.toLowerCase(), 'Available in ' + cols.length + ' colours', 'Logo mock-up sent for approval before production'],
+specs: [
+{ k: 'Material', v: e[1] }, { k: 'Colours', v: cols.map((c) => c[0]).join(', ') }, { k: 'Brand', v: 'Brandit range' },
+{ k: 'Dimensions', v: e[2] }, { k: 'Weight', v: e[3] }, { k: 'Origin', v: 'Imported, held in EU stock' },
+{ k: 'Packaging', v: 'Individual polybag' }, { k: 'Carton quantity', v: '50 units' }, { k: 'Minimum order', v: p0.moq + ' units' }
+],
+prints: [
+{ name: p0.method, pos: e[5], area: 'Confirmed on your mock-up', cols: p0.method.indexOf('ngrav') !== -1 || p0.method.indexOf('eboss') !== -1 ? 'Tone on tone' : 'Up to full colour' }
+],
+files: [{ name: 'Product specification sheet', note: 'PDF · ' + e[0], get: () => toast('Sample page: the real sheet comes from the product feed') }]
+});
+const simList = all.filter((x) => x.id !== p0.id && x.cat === p0.cat).concat(all.filter((x) => x.id !== p0.id && x.cat !== p0.cat)).slice(0, 4);
+const tab = s.tab || 'desc';
+const tabs = [['desc', 'Description'], ['spec', 'Specifications'], ['print', 'Printing options'], ['sim', 'Similar products'], ['files', 'Downloads']].map((t) => ({
+label: t[1], sel: tab === t[0] ? 'true' : 'false', fg: tab === t[0] ? '#0F172A' : '#475569', line: tab === t[0] ? accent : 'transparent', pick: () => this.setState({ tab: t[0] })
+}));
 const draft = s.draft || list[p.id] || p.moq;
 const inList = list[p.id] !== undefined;
 const items = all.filter((x) => list[x.id] !== undefined).map((x) => {
@@ -350,6 +528,14 @@ dark: dark,
 soft: soft,
 isShop: view === 'shop',
 isProduct: view === 'product',
+tabs: tabs,
+tabDesc: tab === 'desc', tabSpec: tab === 'spec', tabPrint: tab === 'print', tabSim: tab === 'sim', tabFiles: tab === 'files',
+sims: simList.map(card),
+colourName: cols[col][0],
+stockOpen: !!s.stockOpen,
+stockOpenAttr: s.stockOpen ? 'true' : 'false',
+stockBtn: s.stockOpen ? 'Hide stock details' : 'Stock details',
+toggleStock: () => this.setState({ stockOpen: !(this.state || {}).stockOpen }),
 isEnquiry: view === 'enquiry',
 isSent: view === 'sent',
 cats: cats,

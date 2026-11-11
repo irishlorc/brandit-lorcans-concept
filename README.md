@@ -13,6 +13,5 @@ Open `index.html` in a browser, or serve the folder with any static host.
 
 - Products, minimum quantities and branding methods are sample data.
 - Phone, email, reply time and lead times are bracketed placeholders.
-- Testimonial quotes are samples (labelled on the page) and must be replaced with real customer feedback before launch.
 - "Send enquiry" validates the form and shows a confirmation, but nothing is sent anywhere.
 - Pages carry `noindex` so the concept is not picked up by search engines.
