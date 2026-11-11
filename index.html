@@ -119,6 +119,21 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
 @media (max-width:720px){
+.tb-l{display:none}
+.bn{padding-left:0 !important;padding-right:0 !important}
+.bn img{border-radius:0 !important}
+.bn-pad{padding:0 16px}
+.trust{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+.trust>div{flex-direction:column;align-items:flex-start !important;gap:8px !important;padding:14px !important}
+.cats{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+.cats .tile{min-height:148px !important;padding:16px !important;border-radius:18px !important}
+.cats .tile>span>span:first-child{font-size:17px !important;line-height:1.2}
+.cats .tile>span>span:last-child{display:none}
+.cats .tile img{width:84px !important;height:84px !important}
+.card .det{display:none}
+.view{padding-bottom:120px !important}
+.steps{gap:6px !important}
+.steps li{padding:7px 10px !important;font-size:12.5px}
 .pills{flex-wrap:nowrap !important;overflow-x:auto;margin:0 -16px;padding:0 16px 4px}
 .pills button{flex:none;white-space:nowrap}
 .mbar{display:flex !important}
@@ -133,7 +148,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 
 <div style="background: {{dark}}; color: #FFFFFF">
 <div style="max-width: 1240px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; font-weight: 500">
-<span>Promotional products · Dublin 24</span>
+<span class="tb-l">Promotional products · Dublin 24</span>
 <span>[PHONE] · [EMAIL]</span>
 </div>
 </div>
@@ -162,10 +177,10 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </nav>
 
-<section style="max-width: 1240px; margin: 0 auto; padding: clamp(12px, 2vw, 24px) clamp(12px, 3vw, 24px) 0; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px)">
+<section class="bn" style="max-width: 1240px; margin: 0 auto; padding: clamp(12px, 2vw, 24px) clamp(12px, 3vw, 24px) 0; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px)">
 <h1 class="sr">Promotional products that perform.</h1>
 <a href="shop.html" class="hero-img" style="display: block"><img decoding="async" src="assets/banner-hero.jpg" width="1774" height="887" alt="Brandit Promotional Products: promotional products that perform. A branded tote bag, travel mug, cap, t-shirt, water bottle and pen." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
-<div class="hin" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<div class="hin bn-pad" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
 <a href="shop.html" class="btn" style="text-decoration: none; font-weight: 700; font-size: 16px; padding: 15px 28px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Explore our range</a>
 <a href="#how" style="font-weight: 600; font-size: 16px; padding: 15px 4px">How enquiries work</a>
 <span style="font-size: 15px; color: #475569; flex: 1 1 280px; min-width: 0">Add what you like to an enquiry list and send it in one go. We reply with pricing and a mock-up of your logo.</span>
@@ -173,7 +188,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </section>
 
 <section style="max-width: 1240px; margin: 0 auto; padding: clamp(16px, 2vw, 24px) clamp(16px, 3vw, 24px) 0">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px">
+<div class="trust" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px">
 <div class="rv" style="border: 1px solid #E2E8F0; border-radius: 18px; padding: 18px 20px; display: flex; align-items: center; gap: 14px">
 <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M4 5h16v11H9l-5 4z"></path></svg>
 <div><div style="font-weight: 700; font-size: 15px">Quote first</div><div style="font-size: 14px; color: #475569">No checkout and no card needed</div></div>
@@ -198,7 +213,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 <h2 class="rv" style="margin: 0; font-weight: 800; font-size: 34px; letter-spacing: -0.03em; line-height: 1.12; max-width: 520px; text-wrap: balance">Find the right thing to put your name on</h2>
 <a href="shop.html" class="btn" style="text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Shop all</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 16px">
+<div class="cats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 16px">
 <a href="shop.html" class="tile rv" style="text-decoration: none; background: #DCE8FF; border-radius: 22px; padding: 24px; min-height: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 800; font-size: 22px">Drinkware</span><span style="font-size: 15px; color: #334155">Bottles, travel mugs and keep cups</span></span><img decoding="async" src="assets/mug.png" alt="" style="align-self: flex-end; width: 120px; height: 120px; object-fit: contain"></a>
 <a href="shop.html" class="tile rv" style="text-decoration: none; background: #FFE9B8; border-radius: 22px; padding: 24px; min-height: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 800; font-size: 22px">Bags</span><span style="font-size: 15px; color: #334155">Totes, backpacks and drawstrings</span></span><img decoding="async" src="assets/tote.png" alt="" style="align-self: flex-end; width: 120px; height: 120px; object-fit: contain"></a>
 <a href="shop.html" class="tile rv" style="text-decoration: none; background: #FFD9E0; border-radius: 22px; padding: 24px; min-height: 220px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 16px"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 800; font-size: 22px">Apparel</span><span style="font-size: 15px; color: #334155">Tees, hoodies, caps and workwear</span></span><img decoding="async" src="assets/tee.png" alt="" style="align-self: flex-end; width: 120px; height: 120px; object-fit: contain"></a>
@@ -208,7 +223,7 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<section style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) 0">
+<section class="bn" style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) 0">
 <a href="shop.html" class="rv" style="display: block"><img decoding="async" loading="lazy" src="assets/banner-range.jpg" width="1774" height="887" alt="Brandit Promotional Products range: branded tote bag, t-shirt, cap, travel mug, water bottle, notebook and pen." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
 </section>
 
@@ -276,9 +291,9 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<section style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px)">
+<section class="bn" style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(12px, 3vw, 24px) clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px)">
 <a href="shop.html" class="rv" style="display: block"><img decoding="async" loading="lazy" src="assets/banner-closing.jpg" width="1774" height="887" alt="Brandit Promotional Products: branded products that build awareness, engage people and deliver lasting value. Explore our range." style="display: block; width: 100%; height: auto; border-radius: clamp(12px, 2vw, 24px)"></a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<div class="bn-pad" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
 <h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.08; flex: 1 1 420px; min-width: 0; text-wrap: balance">Got an idea? Let's put your name on it.</h2>
 <a href="shop.html" class="btn rv" style="text-decoration: none; font-weight: 800; font-size: 18px; padding: 18px 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; display: inline-flex; align-items: center; gap: 12px">Get a Quote<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>

@@ -62,6 +62,21 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
 @media (max-width:720px){
+.tb-l{display:none}
+.bn{padding-left:0 !important;padding-right:0 !important}
+.bn img{border-radius:0 !important}
+.bn-pad{padding:0 16px}
+.trust{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+.trust>div{flex-direction:column;align-items:flex-start !important;gap:8px !important;padding:14px !important}
+.cats{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+.cats .tile{min-height:148px !important;padding:16px !important;border-radius:18px !important}
+.cats .tile>span>span:first-child{font-size:17px !important;line-height:1.2}
+.cats .tile>span>span:last-child{display:none}
+.cats .tile img{width:84px !important;height:84px !important}
+.card .det{display:none}
+.view{padding-bottom:120px !important}
+.steps{gap:6px !important}
+.steps li{padding:7px 10px !important;font-size:12.5px}
 .pills{flex-wrap:nowrap !important;overflow-x:auto;margin:0 -16px;padding:0 16px 4px}
 .pills button{flex:none;white-space:nowrap}
 .mbar{display:flex !important}
@@ -115,7 +130,7 @@ button{font-family:inherit;cursor:pointer}
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
 <button type="button" onClick="{{item.toggle}}" style="flex: 1 1 130px; border: 1px solid {{item.addBorder}}; background: {{item.addBg}}; color: {{item.addFg}}; font-weight: 700; font-size: 14px; padding: 10px 12px; min-height: 44px; border-radius: 999px">{{item.addLabel}}</button>
-<button type="button" onClick="{{item.open}}" style="border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; font-weight: 600; font-size: 14px; padding: 10px 16px; min-height: 44px; border-radius: 999px">Details</button>
+<button type="button" class="det" onClick="{{item.open}}" style="border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F172A; font-weight: 600; font-size: 14px; padding: 10px 16px; min-height: 44px; border-radius: 999px">Details</button>
 </div>
 </article>
 </sc-for>
@@ -170,7 +185,7 @@ button{font-family:inherit;cursor:pointer}
 </div>
 </sc-if>
 <sc-if value="{{hasItems}}" hint-placeholder-val="{{true}}">
-<ol aria-label="Enquiry steps" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; font-weight: 700">
+<ol aria-label="Enquiry steps" class="steps" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; font-weight: 700">
 <li style="padding: 8px 14px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">1 · Your list</li>
 <li style="padding: 8px 14px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">2 · Your details</li>
 <li style="padding: 8px 14px; border-radius: 999px; background: {{soft}}; color: #334155">3 · Quote by email</li>
