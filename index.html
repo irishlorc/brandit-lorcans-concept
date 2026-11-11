@@ -119,6 +119,15 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 @keyframes drift2{from{translate:0 -50px}to{translate:0 50px}}
 }
 }
+.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.mq-track{display:flex;gap:16px;width:max-content;padding:6px 16px 28px 0}
+.mq-card{flex:none;width:min(340px,78vw);box-sizing:border-box;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 18px 30px -26px rgba(2,6,23,.5)}
+@media (prefers-reduced-motion:no-preference){
+.mq-track{animation:mq 48s linear infinite}
+.mq:hover .mq-track,.mq:focus-within .mq-track,.mq:active .mq-track{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+}
+@media (prefers-reduced-motion:reduce){.mq{overflow-x:auto}.mq-dup{display:none !important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
 @media (max-width:720px){
 .tb-l{display:none}
@@ -290,6 +299,98 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 <span style="height: clamp(130px, 16vw, 210px); border-radius: 14px; background: #FFE9B8; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #475569"><img decoding="async" src="assets/cap.png" alt="" style="max-height: clamp(110px, 13.5vw, 180px); max-width: 85%"></span>
 <span style="display: flex; flex-direction: column; gap: 2px; padding: 0 6px 6px"><span style="font-weight: 700; font-size: 16px">Five-panel cap</span><span style="font-size: 14px; color: #475569">Price on enquiry</span></span>
 </a>
+</div>
+</section>
+
+<section style="padding: clamp(40px, 6vw, 72px) 0 0; display: flex; flex-direction: column; gap: 24px">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 24px); box-sizing: border-box">
+<h2 class="rv" style="margin: 0; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">What our customers say</h2>
+</div>
+<div class="mq">
+<div class="mq-track">
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT PRODUCT QUALITY]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #DCE8FF; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT TURNAROUND TIME]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFE9B8; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT THE LOGO MOCK-UP]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFD9E0; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT SERVICE]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #D6F2DE; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT REORDERING]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #E6DEFF; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<div aria-hidden="true" class="mq-dup" style="display: flex; gap: 16px">
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT PRODUCT QUALITY]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #DCE8FF; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT TURNAROUND TIME]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFE9B8; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT THE LOGO MOCK-UP]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFD9E0; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT SERVICE]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #D6F2DE; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0">
+<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT REORDERING]</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #E6DEFF; flex: none"></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </section>
 
