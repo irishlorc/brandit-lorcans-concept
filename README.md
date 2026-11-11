@@ -12,6 +12,6 @@ Open `index.html` in a browser, or serve the folder with any static host.
 ## Not production yet
 
 - Products, minimum quantities and branding methods are sample data.
-- Phone, email, reply time and lead times are bracketed placeholders.
+- Contact details, team names, address, opening hours and footer links are taken from the live brandit.ie contacts page. Reply time is still a bracketed placeholder.
 - "Send enquiry" validates the form and shows a confirmation, but nothing is sent anywhere.
 - Pages carry `noindex` so the concept is not picked up by search engines.

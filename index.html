@@ -131,7 +131,8 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 @media (prefers-reduced-motion:reduce){.mq{overflow-x:auto}.mq-dup{display:none !important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none !important;transition:none !important}}
 @media (max-width:720px){
-.tb-l{display:none}
+.tb-l{display:none !important}
+.catnav{flex-wrap:nowrap !important;overflow-x:auto;white-space:nowrap}
 .bn{padding-left:0 !important;padding-right:0 !important}
 .bn img{border-radius:0 !important}
 .bn-pad{padding:0 16px}
@@ -160,8 +161,8 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 
 <div style="background: {{dark}}; color: #FFFFFF">
 <div style="max-width: 1240px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; font-weight: 500">
-<span class="tb-l">Promotional products · Dublin 24</span>
-<span>[PHONE] · [EMAIL]</span>
+<span class="tb-l" style="display: flex; gap: 20px"><a href="#contact" style="color: #FFFFFF; text-decoration: none">Contacts &amp; map</a><a href="https://www.brandit.ie/en/about-us" style="color: #FFFFFF; text-decoration: none">About us</a></span>
+<span style="display: flex; flex-wrap: wrap; gap: 4px 16px"><a href="tel:+35319012094" style="color: #FFFFFF; text-decoration: none">+353 1 901 2094</a><a href="mailto:sales@brandit.ie" style="color: #FFFFFF; text-decoration: none">sales@brandit.ie</a></span>
 </div>
 </div>
 
@@ -177,15 +178,23 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </header>
 
 <nav aria-label="Categories" style="border-bottom: 1px solid #E2E8F0">
-<div class="nosb" style="max-width: 1240px; margin: 0 auto; padding: 4px 24px; display: flex; overflow-x: auto; white-space: nowrap; gap: 28px; font-size: 15px; font-weight: 600">
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">All products</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Drinkware</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Bags</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Apparel</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Pens and stationery</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Tech</a>
-<a href="shop.html" class="lnk" style="text-decoration: none; padding: 12px 0">Eco range</a>
-<a href="#how" class="lnk" style="text-decoration: none; padding: 12px 0">How it works</a>
+<div class="nosb catnav" style="max-width: 1240px; margin: 0 auto; padding: 4px 24px; display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 14.5px; font-weight: 600; box-sizing: border-box">
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Promotions &amp; Sale</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Campaign Ideas</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Eco &amp; Bio Products</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Writing Instruments</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Notebooks &amp; Notepads</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Drinkware</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Umbrellas</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Bags &amp; Backpacks</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Textiles &amp; Fashion</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Business &amp; Office</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Traveling</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Leisure &amp; Sport</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Wellness &amp; Healthcare</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Technology &amp; Mobile</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Kids, Toys &amp; School</a>
+<a href="shop.html" class="lnk" style="text-decoration: none; padding: 10px 0">Tools</a>
 </div>
 </nav>
 
@@ -461,17 +470,56 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<footer id="contact" style="background: {{dark}}; color: #FFFFFF">
-<div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 56px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 12px">
+<section id="contact" style="max-width: 1240px; margin: 0 auto; padding: clamp(8px, 2vw, 24px) clamp(16px, 3vw, 24px) clamp(48px, 7vw, 88px); display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px); box-sizing: border-box">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; line-height: 1.08">Contact the Brandit team</h2>
+<p class="rv" style="margin: 0; font-size: 17px; color: #334155">Expert help for your branding projects, located in South City Business Park, Dublin.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px">
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Sales</span><span style="font-size: 14px; color: #475569">Quotes and product info</span></div>
+<span style="font-weight: 600; font-size: 15px">Lesley &amp; Aoife</span>
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012094" style="padding: 6px 0">01 901 2094</a><a href="mailto:sales@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">sales@brandit.ie</a></div>
+</div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Trade</span><span style="font-size: 14px; color: #475569">Agencies and resellers</span></div>
+<span style="font-weight: 600; font-size: 15px">Shane &amp; Damien</span>
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012094" style="padding: 6px 0">01 901 2094</a><a href="mailto:trade@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">trade@brandit.ie</a></div>
+</div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Production</span><span style="font-size: 14px; color: #475569">Printing and artwork</span></div>
+<span style="font-weight: 600; font-size: 15px">Keith &amp; Gary</span>
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319012093" style="padding: 6px 0">01 901 2093</a><a href="mailto:production@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">production@brandit.ie</a></div>
+</div>
+<div class="rv" style="border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 20px; letter-spacing: -0.02em">Accounts</span><span style="font-size: 14px; color: #475569">Invoices and billing</span></div>
+<span style="font-weight: 600; font-size: 15px">Paula &amp; Derek</span>
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><a href="tel:+35319081533" style="padding: 6px 0">01 908 1533</a><a href="mailto:accounts@brandit.ie" style="padding: 6px 0; overflow-wrap: anywhere">accounts@brandit.ie</a></div>
+</div>
+</div>
+<div class="rv" style="background: {{soft}}; border-radius: 24px; padding: clamp(22px, 3vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 20px 56px">
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Head office</span><span>Brandit Promotional Products Ltd.</span><span>Unit E11 Block E, South City Business Park</span><span>Tallaght, Dublin 24, D24 CV61, Ireland</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px"><span style="font-weight: 800; font-size: 18px">Opening hours</span><span>Monday to Friday</span><span>9:00 AM to 5:00 PM</span></div>
+</div>
+<a href="https://maps.google.com/?q=Brandit+Promotional+Products+Tallaght" class="btn" style="text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 24px; border-radius: 999px; background: {{accent}}; color: #FFFFFF">Get directions</a>
+</div>
+</section>
+
+<footer style="background: {{dark}}; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px 48px; box-sizing: border-box">
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #E3EAFB">
 <img decoding="async" src="assets/logo-white.png" alt="Brandit Promotional Products" style="height: 52px; width: auto; display: block; align-self: flex-start">
-<div style="font-size: 14px; color: #E3EAFB">Brandit Promotional Products Ltd · Dublin 24, Ireland</div>
+<span>Unit E11 Block E, South City Business Park,<br>Tallaght, Dublin 24, D24 CV61, Ireland</span>
+<span><a href="tel:+35319012094" style="color: #FFFFFF">+353 1 901 2094</a> · <a href="mailto:sales@brandit.ie" style="color: #FFFFFF">sales@brandit.ie</a></span>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 700">Talk to us</span><span style="color: #E3EAFB">[PHONE]</span><span style="color: #E3EAFB">[EMAIL]</span></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 700">Shop</span><a href="shop.html" style="color: #E3EAFB">All products</a><a href="#how" style="color: #E3EAFB">How enquiries work</a></div>
+<div style="display: flex; flex-wrap: wrap; gap: 28px 48px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; margin-bottom: 4px">About company</span><a href="https://www.brandit.ie/en/about-us" style="color: #E3EAFB; padding: 4px 0">About us</a><a href="https://www.brandit.ie/en/terms-conditions" style="color: #E3EAFB; padding: 4px 0">Terms &amp; conditions</a><a href="#contact" style="color: #E3EAFB; padding: 4px 0">Contacts</a></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; margin-bottom: 4px">For customers</span><a href="https://www.brandit.ie/en/frequented-asked-questions" style="color: #E3EAFB; padding: 4px 0">FAQ</a><a href="https://www.brandit.ie/en/printing-technologies" style="color: #E3EAFB; padding: 4px 0">Printing technologies</a><a href="https://www.brandit.ie/en/protection-of-personal-data" style="color: #E3EAFB; padding: 4px 0">Personal data (GDPR)</a></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; margin-bottom: 4px">Service and information</span><a href="https://www.brandit.ie/en/order-samples" style="color: #E3EAFB; padding: 4px 0">Samples</a><a href="https://www.brandit.ie/en/prepare-print-data" style="color: #E3EAFB; padding: 4px 0">Prepare print data</a><a href="https://www.brandit.ie/en/lead-times" style="color: #E3EAFB; padding: 4px 0">Lead times</a><a href="https://www.brandit.ie/en/sitemap" style="color: #E3EAFB; padding: 4px 0">Sitemap</a></div>
 </div>
 </div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px 32px; font-size: 13px; color: #E3EAFB; box-sizing: border-box">Brandit Promotional Products Ltd. © 2026</div>
 </footer>
 
 </div>
