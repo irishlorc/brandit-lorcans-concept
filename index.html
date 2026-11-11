@@ -119,11 +119,12 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 @keyframes drift2{from{translate:0 -50px}to{translate:0 50px}}
 }
 }
-.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.mq-track{display:flex;gap:16px;width:max-content;padding:6px 16px 28px 0}
-.mq-card{flex:none;width:min(340px,78vw);box-sizing:border-box;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 18px 30px -26px rgba(2,6,23,.5)}
+.mq{overflow:hidden}
+.mq-track{display:flex;gap:16px;width:max-content;padding:0 16px 0 0}
+.mq-card{flex:none;width:min(380px,80vw);box-sizing:border-box;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.mq-rev .mq-track{animation-direction:reverse !important}
 @media (prefers-reduced-motion:no-preference){
-.mq-track{animation:mq 48s linear infinite}
+.mq-track{animation:mq 64s linear infinite}
 .mq:hover .mq-track,.mq:focus-within .mq-track,.mq:active .mq-track{animation-play-state:paused}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 }
@@ -302,91 +303,149 @@ button:active,.btn:active{transform:scale(.97);filter:none}
 </div>
 </section>
 
-<section style="padding: clamp(40px, 6vw, 72px) 0 0; display: flex; flex-direction: column; gap: 24px">
-<div style="width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 24px); box-sizing: border-box">
-<h2 class="rv" style="margin: 0; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">What our customers say</h2>
+<section style="margin-top: clamp(40px, 6vw, 72px); background: {{brand}}; color: #FFFFFF; padding: clamp(48px, 7vw, 88px) 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
+<div style="width: 100%; max-width: 1240px; margin: 0 auto clamp(12px, 2vw, 24px); padding: 0 clamp(16px, 3vw, 24px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-direction: column; gap: 14px; flex: 1 1 420px; min-width: 0">
+<div aria-hidden="true" style="width: 72px; height: 8px; border-radius: 999px; background: #FFD400"></div>
+<h2 class="rv" style="margin: 0; font-weight: 800; font-size: clamp(32px, 4.2vw, 52px); letter-spacing: -0.035em; line-height: 1.04; text-wrap: balance">Kind words from the people we print for.</h2>
+</div>
+<span style="font-size: 13px; font-weight: 700; padding: 7px 14px; border-radius: 999px; background: #FFFFFF; color: #0F172A">Sample quotes</span>
 </div>
 <div class="mq">
 <div class="mq-track">
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT PRODUCT QUALITY]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">The mugs arrived a day early and the print was spot on.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #DCE8FF; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT TURNAROUND TIME]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFD400; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#0F172A"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Seeing our logo on the mock-up before we ordered made sign-off easy.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFE9B8; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: #0F172A; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #3A3200">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT THE LOGO MOCK-UP]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">One list, one quote, no chasing. Exactly what we needed for the conference.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFD9E0; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT SERVICE]</blockquote>
+<figure class="mq-card" style="margin: 0; background: {{dark}}; color: #FFFFFF">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">We reordered the hoodies twice. Same quality every time.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #D6F2DE; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
-</figcaption>
-</figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT REORDERING]</blockquote>
-<figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #E6DEFF; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: {{dark}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #E3EAFB">Role, Company</span></span>
 </figcaption>
 </figure>
 <div aria-hidden="true" class="mq-dup" style="display: flex; gap: 16px">
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT PRODUCT QUALITY]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">The mugs arrived a day early and the print was spot on.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #DCE8FF; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT TURNAROUND TIME]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFD400; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#0F172A"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Seeing our logo on the mock-up before we ordered made sign-off easy.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFE9B8; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: #0F172A; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #3A3200">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT THE LOGO MOCK-UP]</blockquote>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">One list, one quote, no chasing. Exactly what we needed for the conference.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFD9E0; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT SERVICE]</blockquote>
+<figure class="mq-card" style="margin: 0; background: {{dark}}; color: #FFFFFF">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">We reordered the hoodies twice. Same quality every time.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #D6F2DE; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: {{dark}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #E3EAFB">Role, Company</span></span>
 </figcaption>
 </figure>
-<figure class="mq-card" style="margin: 0">
-<svg aria-hidden="true" width="34" height="26" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
-<blockquote style="margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; flex: 1">[QUOTE ABOUT REORDERING]</blockquote>
+</div>
+</div>
+</div>
+<div class="mq mq-rev">
+<div class="mq-track">
+<figure class="mq-card" style="margin: 0; background: {{dark}}; color: #FFFFFF">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">They suggested a better tote than the one we picked, and it cost less.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px">
-<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #E6DEFF; flex: none"></span>
-<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">[CUSTOMER NAME]</span><span style="font-size: 14px; color: #475569">[ROLE, COMPANY]</span></span>
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: {{dark}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #E3EAFB">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Quick replies, clear pricing and no surprises on the invoice.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFD400; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#0F172A"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Our new starters love the welcome packs.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: #0F172A; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #3A3200">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">From enquiry to delivery, it took no effort on our side.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
+</figcaption>
+</figure>
+<div aria-hidden="true" class="mq-dup" style="display: flex; gap: 16px">
+<figure class="mq-card" style="margin: 0; background: {{dark}}; color: #FFFFFF">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">They suggested a better tote than the one we picked, and it cost less.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: {{dark}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #E3EAFB">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Quick replies, clear pricing and no surprises on the invoice.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFD400; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#0F172A"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">Our new starters love the welcome packs.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; color: #0F172A; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #3A3200">Role, Company</span></span>
+</figcaption>
+</figure>
+<figure class="mq-card" style="margin: 0; background: #FFFFFF; color: #0F172A">
+<svg aria-hidden="true" width="40" height="30" viewBox="0 0 34 26" fill="#FFD400"><path d="M0 26V15C0 6 5 1 14 0v5c-4 1-6 3-6 7h6v14zM20 26V15c0-9 5-14 14-15v5c-4 1-6 3-6 7h6v14z"></path></svg>
+<blockquote style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; flex: 1; text-wrap: pretty">From enquiry to delivery, it took no effort on our side.</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 50%; background: {{soft}}; color: {{accent}}; flex: none; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-4 4.5-6 8-6s6.500 2 8 6"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px">Customer name</span><span style="font-size: 14px; color: #475569">Role, Company</span></span>
 </figcaption>
 </figure>
 </div>
